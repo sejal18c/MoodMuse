@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ FIX
+import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Diary.css";
 import MoodPlayer from "../components/MoodPlayer";
 
 const API_BASE = "http://localhost:8000";
 
 function Diary() {
-  const navigate = useNavigate(); // ✅ FIX
+  const navigate = useNavigate();
   const today = new Date().toISOString().split("T")[0];
 
   const [date, setDate] = useState(today);
@@ -17,19 +17,8 @@ function Diary() {
   const [error, setError] = useState("");
   const [playMusic, setPlayMusic] = useState(false);
 
-  /* 🔹 Auto mood detection (NO autoplay music) */
-  useEffect(() => {
-    if (!content.trim()) return;
-
-    const timer = setTimeout(() => {
-      analyzeMood(false); // ❌ no music autoplay
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, [content]);
-
-  /* 🔹 Analyze mood */
-  const analyzeMood = async (shouldPlay = true) => {
+  /* 🔹 Analyze mood (FIXED with useCallback) */
+  const analyzeMood = useCallback(async (shouldPlay = true) => {
     if (!content.trim()) return;
 
     setDetecting(true);
@@ -47,15 +36,25 @@ function Diary() {
       const data = await res.json();
       setMood(data.emotion || "calm");
 
-      if (shouldPlay) setPlayMusic(true);
-      else setPlayMusic(false); // ✅ reset on auto detect
+      setPlayMusic(shouldPlay);
     } catch {
       setError("⚠ Unable to analyze mood");
       setMood("calm");
     } finally {
       setDetecting(false);
     }
-  };
+  }, [content]);
+
+  /* 🔹 Auto mood detection */
+  useEffect(() => {
+    if (!content.trim()) return;
+
+    const timer = setTimeout(() => {
+      analyzeMood(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, [content, analyzeMood]);
 
   /* 🔹 Date validation */
   const handleDateChange = (e) => {
@@ -66,7 +65,7 @@ function Diary() {
     setDate(e.target.value);
   };
 
-  /* 🔹 SAVE ENTRY (AUTH FIXED) */
+  /* 🔹 Save entry */
   const saveEntry = async () => {
     const token = localStorage.getItem("access_token");
 
@@ -88,7 +87,7 @@ function Diary() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // 🔥 REQUIRED
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ date, mood, content }),
       });
@@ -97,7 +96,7 @@ function Diary() {
         alert("Session expired. Please login again.");
         localStorage.clear();
         navigate("/login");
-        return; // ✅ VERY IMPORTANT
+        return;
       }
 
       if (!res.ok) throw new Error();
@@ -143,7 +142,6 @@ function Diary() {
         Detected Mood: <strong>{mood}</strong>
       </p>
 
-      {/* 🎵 Music plays ONLY when Analyze clicked */}
       <MoodPlayer mood={mood} play={playMusic} />
     </div>
   );
