@@ -1,0 +1,67 @@
+.diary-container {
+  padding: 20px;
+  background-color: #fff7fa;   /* 🎨 same as sidebar bg */
+  margin-left: 220px;
+  height: 100vh;
+}
+
+.diary-title {
+  color: #ff4081;   /* 🎨 bright accent pink like logo */
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.date-picker {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border: 1px solid #ffc1e3;   /* 🎨 light soft pink border */
+  border-radius: 6px;
+  background-color: #fff;      /* white input */
+  color: #333;
+  font-size: 14px;
+}
+
+.diary-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ffc1e3;   /* 🎨 soft pink border */
+  resize: vertical;
+  min-height: 140px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;      /* ✅ text visible */
+  line-height: 1.6;
+}
+
+.save-button,
+.analyze-button {
+  background-color: #ff80ab;   /* 🎨 button = sidebar hover pink */
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s;
+}
+
+.save-button:hover,
+.analyze-button:hover {
+  background-color: #ff4081;   /* 🎨 hover = bright accent pink */
+  transform: translateY(-2px);
+}
+
+.mood-display {
+  margin-top: 12px;
+  font-style: italic;
+  color: #c2185b;   /* 🎨 deep accent pink */
+  background-color: #ffe4ef;   /* 🎨 very light pink tag */
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}

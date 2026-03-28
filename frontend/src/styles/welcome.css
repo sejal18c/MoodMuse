@@ -1,0 +1,65 @@
+.welcome-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #f6d365, #fda085);
+  animation: floatBg 10s ease-in-out infinite;
+}
+
+@keyframes floatBg {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0 0; }
+}
+
+.welcome-content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.welcome-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background-color: white;
+  color: #f57c00;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.welcome-button:hover {
+  background-color: #fdd835;
+  color: black;
+}
+
+.welcome-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

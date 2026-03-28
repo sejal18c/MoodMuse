@@ -1,0 +1,95 @@
+/* 🌸 Page container */
+.calendar-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #ffeef4, #fff0f6); /* soft pink gradient */
+  margin-left: 220px; /* space for sidebar */
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(236, 64, 122, 0.1);
+  overflow-y: auto;
+}
+
+/* 🌸 Title */
+.calendar-title {
+  color: #e91e63;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(233, 30, 99, 0.2);
+}
+
+/* 🌸 Calendar box */
+.date-picker {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 2px solid #f8bbd0;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.date-picker:hover {
+  transform: scale(1.01);
+}
+
+/* 🌸 Calendar tile highlight */
+.react-calendar__tile--active {
+  background: #f48fb1 !important; /* soft pink */
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+.react-calendar__tile--now {
+  background: #fce4ec !important; /* highlight today */
+  border-radius: 8px;
+}
+
+/* 🌸 Mood emoji on calendar */
+.react-calendar__tile span {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* 🌸 Entry card */
+.entry-card {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #fff0f6;
+  box-shadow: 0 4px 10px rgba(236, 64, 122, 0.15);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.entry-card h3 {
+  color: #d81b60;
+  margin-bottom: 8px;
+}
+
+.no-entry {
+  margin-top: 20px;
+  font-style: italic;
+  color: #888;
+  background: #f8f8f8;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* 🌸 Subtle animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

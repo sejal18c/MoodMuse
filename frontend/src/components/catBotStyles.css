@@ -1,0 +1,184 @@
+/* 🐾 Wrapper for the floating cat + chatbox */
+.catbot-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 1000;
+  font-family: "Comic Sans MS", cursive;
+}
+
+/* 🐱 Floating cat icon */
+.cat-peek-wrapper {
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.cat-peek-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.peek-cat {
+  width: 90px;
+  height: auto;
+  border-radius: 0;      
+  object-fit: contain;   
+  box-shadow: none;      
+  background: none;      
+  image-rendering: auto;
+}
+
+
+/* Always-visible bot name below cat */
+.bot-name-always {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  background: #fff0f5;
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #ff4f93;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 💬 Chatbox container */
+.catbot-chatbox {
+  position: absolute;
+  bottom: 110px;
+  right: 0;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: popIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 📜 Messages area */
+.messages {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ✨ Chat bubble styles */
+.msg {
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  word-wrap: break-word;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+.msg.cat {
+  background: #ffe6f0;
+  align-self: flex-start;
+  color: #ff3c7e;
+}
+
+.msg.user {
+  background: #e0f7fa;
+  align-self: flex-end;
+  color: #007d8c;
+}
+
+/* ⌨️ Input area */
+.input-row {
+  display: flex;
+  gap: 6px;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+  outline: none;
+  border-color: #ff7ea7;
+}
+
+.input-row button {
+  background: linear-gradient(135deg, #ff80ab, #ff4f93);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.input-row button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff4f93, #ff80ab);
+}
+
+/* 🟡 Typing animation */
+.typing-dots span {
+  animation: blink 1.5s infinite;
+  font-size: 20px;
+  margin-right: 2px;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+/* ✨ Smooth fade-in for new messages */
+.fade-in {
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🫧 Floating animation for cat icon */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* 📌 Chatbox pop animation */
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ❌ Error message */
+.error-msg {
+  color: #ff4d6d;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: -2px;
+  background: #ffe6ec;
+  padding: 4px;
+  border-radius: 8px;
+}

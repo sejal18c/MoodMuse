@@ -1,0 +1,129 @@
+/* .sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #fff4f8;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff4081;
+  margin-bottom: 30px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background-color: #ffe0eb;
+  color: #ff4081;
+} */
+
+/* 
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #fff4f8;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff4081;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #ffe0eb;
+  color: #ff4081;
+  font-weight: bold;
+} */
+
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(180deg, #ff9ac7, #ffb6d9);
+  color: white;
+  padding: 20px;
+  position: fixed;   /* stays fixed */
+  top: 0;
+  left: 0;
+}
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ff4f9d; /* solid soft pink */
+  letter-spacing: 0.5px;
+}
+
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
