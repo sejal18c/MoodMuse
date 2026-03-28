@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+requests
+
+# chatbot (LLaMA / Ollama use kart asel tar)
+langchain
+ollama
